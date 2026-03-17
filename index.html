@@ -5,49 +5,107 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
 body{
-font-family:Arial;
-background:#f5f5f5;
+font-family: 'Segoe UI', Arial, sans-serif;
+background: linear-gradient(#eaf6ff,#ffffff);
+margin:0;
 text-align:center;
-padding-top:80px;
+}
+
+.header{
+background:#4da6ff;
+color:white;
+padding:25px;
+font-size:26px;
+font-weight:600;
+}
+
+.container{
+display:flex;
+justify-content:center;
+padding:40px 20px;
 }
 
 .card{
 background:white;
-padding:30px;
-width:320px;
-margin:auto;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+padding:35px;
+width:340px;
+border-radius:14px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.card h2{
+margin-top:0;
+color:#333;
+}
+
+.card p{
+color:#666;
+font-size:14px;
 }
 
 input{
-width:90%;
-padding:10px;
-margin:8px;
-border:1px solid #ccc;
-border-radius:5px;
+width:92%;
+padding:12px;
+margin:8px 0;
+border-radius:6px;
+border:1px solid #d9d9d9;
+font-size:14px;
 }
 
-button{
-padding:14px 25px;
+.submit-btn{
+width:100%;
+background:#4da6ff;
+color:white;
+padding:12px;
+border:none;
+border-radius:6px;
+font-size:15px;
+cursor:pointer;
+}
+
+.submit-btn:hover{
+background:#3399ff;
+}
+
+.pay-btn{
+margin-top:15px;
+width:100%;
 background:#28a745;
 color:white;
+padding:14px;
 border:none;
 border-radius:6px;
 font-size:16px;
 cursor:pointer;
-margin-top:10px;
 }
+
+.pay-btn:hover{
+background:#218838;
+}
+
+.footer{
+margin-top:20px;
+font-size:12px;
+color:#888;
+}
+
 </style>
 </head>
 
 <body>
 
+<div class="header">
+Pawfluence
+</div>
+
+<div class="container">
+
 <div class="card">
 
-<h2>Pawfluence Registration</h2>
-<p>Fill details and pay ₹149</p>
+<h2>Creator Registration</h2>
+<p>Fill in your details and complete the registration fee.</p>
 
 <form action="https://formspree.io/f/xkoqpgvy" method="POST">
 
@@ -59,15 +117,19 @@ margin-top:10px;
 
 <input type="tel" name="phone" placeholder="Contact Number" required>
 
-<button type="submit">Submit Details</button>
+<button class="submit-btn" type="submit">Submit Details</button>
 
 </form>
 
-<br>
-
 <a href="upi://pay?pa=pawfluence01@okhdfcbank&pn=Pawfluence&am=149&cu=INR">
-<button>Pay ₹149</button>
+<button class="pay-btn">Pay ₹149 Registration Fee</button>
 </a>
+
+<div class="footer">
+Secure UPI Payment
+</div>
+
+</div>
 
 </div>
 
