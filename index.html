@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-
 body{
-font-family: 'Segoe UI', Arial, sans-serif;
+font-family:'Segoe UI', Arial, sans-serif;
 background: linear-gradient(#eaf6ff,#ffffff);
 margin:0;
 text-align:center;
@@ -16,42 +15,54 @@ text-align:center;
 .header{
 background:#4da6ff;
 color:white;
-padding:25px;
-font-size:26px;
+padding:22px;
+font-size:24px;
 font-weight:600;
 }
 
 .container{
 display:flex;
 justify-content:center;
-padding:40px 20px;
+padding:20px;
 }
 
 .card{
 background:white;
-padding:35px;
-width:340px;
+padding:30px;
+width:360px;
 border-radius:14px;
 box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
-.card h2{
-margin-top:0;
+h2{
+margin-top:5px;
 color:#333;
 }
 
-.card p{
+p{
 color:#666;
 font-size:14px;
 }
 
-input{
+input, select, textarea{
 width:92%;
 padding:12px;
 margin:8px 0;
 border-radius:6px;
 border:1px solid #d9d9d9;
 font-size:14px;
+}
+
+textarea{
+resize:none;
+}
+
+.section-title{
+text-align:left;
+font-size:13px;
+font-weight:600;
+color:#4da6ff;
+margin-top:15px;
 }
 
 .submit-btn{
@@ -81,41 +92,67 @@ font-size:16px;
 cursor:pointer;
 }
 
-.pay-btn:hover{
-background:#218838;
-}
-
 .footer{
-margin-top:20px;
+margin-top:15px;
 font-size:12px;
 color:#888;
 }
-
 </style>
 </head>
 
 <body>
 
 <div class="header">
-Pawfluence
+🐾 Pawfluence
 </div>
 
 <div class="container">
-
 <div class="card">
 
 <h2>Creator Registration</h2>
-<p>Fill in your details and complete the registration fee.</p>
+<p>Join our pet creator community & get featured!</p>
 
-<form action="https://formspree.io/f/xkoqpgvy" method="POST">
+<form action="https://formspree.io/f/xkoqpgvy" method="POST" enctype="multipart/form-data">
 
+<div class="section-title">Owner Details</div>
 <input type="text" name="name" placeholder="Full Name" required>
+<input type="tel" name="phone" placeholder="Contact Number (WhatsApp preferred)" required>
+<input type="email" name="email" placeholder="Email ID" required>
+<input type="text" name="city" placeholder="City (Optional)">
 
-<input type="text" name="instagram" placeholder="Instagram Username" required>
+<div class="section-title">Instagram</div>
+<input type="text" name="instagram" placeholder="Instagram Handle" required>
 
-<input type="email" name="email" placeholder="Email Address" required>
+<select name="posting">
+<option value="">Do you post pet content regularly?</option>
+<option>Yes</option>
+<option>No</option>
+<option>Sometimes</option>
+</select>
 
-<input type="tel" name="phone" placeholder="Contact Number" required>
+<div class="section-title">Pet Details</div>
+<input type="text" name="pet_name" placeholder="Pet Name" required>
+
+<select name="pet_type">
+<option value="">Pet Type</option>
+<option>Dog</option>
+<option>Cat</option>
+<option>Bird</option>
+<option>Other</option>
+</select>
+
+<input type="text" name="breed" placeholder="Breed">
+<input type="text" name="age" placeholder="Age of Pet">
+
+<label style="font-size:13px;color:#555;">Upload Your Pet’s Best Photo</label>
+<input type="file" name="photo" required>
+
+<textarea name="intro" rows="3" placeholder="Tell us about your pet (1–2 lines)" required></textarea>
+
+<label style="font-size:12px;color:#555;">
+<input type="checkbox" name="consent" required>
+ I allow Pawfluence to feature my pet on social media/magazine.
+</label>
 
 <button class="submit-btn" type="submit">Submit Details</button>
 
@@ -126,11 +163,10 @@ Pawfluence
 </a>
 
 <div class="footer">
-Secure UPI Payment
+Secure UPI Payment • Pawfluence
 </div>
 
 </div>
-
 </div>
 
 </body>
