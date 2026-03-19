@@ -47,7 +47,7 @@ font-size:14px;
 text-align:center;
 }
 
-input, select, textarea{
+input, textarea{
 width:100%;
 padding:12px;
 margin:8px 0;
@@ -125,7 +125,7 @@ text-align:center;
 <h2>Creator Registration</h2>
 <p>Join our pet creator community & get featured!</p>
 
-<form action="https://formspree.io/f/xkoqpgvy" method="POST" enctype="multipart/form-data">
+<form action="https://formspree.io/f/xkoqpgvy" method="POST">
 
 <div class="section-title">Owner Details</div>
 <input type="text" name="name" placeholder="Full Name" required>
@@ -135,21 +135,12 @@ text-align:center;
 
 <div class="section-title">Instagram</div>
 <input type="text" name="instagram" placeholder="Instagram Handle" required>
-
-<select name="posting">
-<option value="">Do you post pet content regularly?</option>
-<option>Yes</option>
-<option>No</option>
-<option>Sometimes</option>
-</select>
+<input type="text" name="posting" placeholder="Do you post pet content regularly?" required>
 
 <div class="section-title">Pet Details</div>
 <input type="text" name="pet_name" placeholder="Pet Name" required>
 <input type="text" name="breed" placeholder="Breed">
 <input type="text" name="age" placeholder="Age of Pet">
-
-<label style="font-size:13px;color:#555;">Upload Your Pet’s Best Photo</label>
-<input type="file" name="photo" required>
 
 <textarea name="intro" rows="3" placeholder="Tell us about your pet (1–2 lines)" required></textarea>
 
