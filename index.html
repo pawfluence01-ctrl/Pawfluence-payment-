@@ -79,15 +79,26 @@ color:white;
 .hidden{
 display:none;
 }
+
+.error{
+color:red;
+font-size:13px;
+margin-top:5px;
+display:none;
+}
 </style>
 
 <script>
 function showForm(){
-let txn = document.getElementById("txn").value;
+let txn = document.getElementById("txn").value.trim();
+let error = document.getElementById("error-msg");
 
-if(txn.trim() === ""){
-alert("Please enter your UPI Transaction ID");
+// strict check
+if(txn === "" || txn.length < 8){
+error.style.display = "block";
 return;
+} else {
+error.style.display = "none";
 }
 
 // hide payment section
@@ -112,7 +123,7 @@ Pawfluence
 <div class="container">
 <div class="card">
 
-<!-- STEP 1: PAYMENT -->
+<!-- PAYMENT -->
 <div id="payment-section">
 
 <h2>Complete Your Registration</h2>
@@ -124,11 +135,15 @@ Pawfluence
 
 <input type="text" id="txn" placeholder="Enter UPI Transaction ID after payment">
 
+<div id="error-msg" class="error">
+Please enter a valid UPI Transaction ID to continue
+</div>
+
 <button class="continue-btn" onclick="showForm()">Continue</button>
 
 </div>
 
-<!-- STEP 2: FORM -->
+<!-- FORM -->
 <div id="form-section" class="hidden">
 
 <h2>Enter Your Details</h2>
