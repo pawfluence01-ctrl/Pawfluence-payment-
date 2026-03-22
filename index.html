@@ -17,7 +17,6 @@ background:#0d1b2a;
 color:white;
 padding:22px;
 font-size:24px;
-font-weight:600;
 }
 
 .container{
@@ -33,19 +32,16 @@ width:360px;
 border-radius:12px;
 box-shadow:0 6px 18px rgba(0,0,0,0.08);
 text-align:left;
-border:1px solid #eee;
 }
 
 h2{
-margin-top:5px;
-color:#0d1b2a;
 text-align:center;
+color:#0d1b2a;
 }
 
 p{
-color:#555;
-font-size:14px;
 text-align:center;
+color:#555;
 }
 
 input, textarea{
@@ -54,117 +50,93 @@ padding:12px;
 margin:8px 0;
 border-radius:6px;
 border:1px solid #ddd;
-font-size:14px;
-box-sizing:border-box;
 }
 
-input:focus, textarea:focus{
-outline:none;
-border:1px solid #0d1b2a;
-}
-
-textarea{
-resize:none;
-}
-
-.section-title{
-font-size:13px;
-font-weight:600;
-color:#0d1b2a;
-margin-top:15px;
-}
-
-.submit-btn{
+button{
 width:100%;
-background:#0d1b2a;
-color:white;
 padding:12px;
 border:none;
 border-radius:6px;
-font-size:15px;
+margin-top:10px;
 cursor:pointer;
-}
-
-.submit-btn:hover{
-background:#1b263b;
 }
 
 .pay-btn{
-margin-top:15px;
-width:100%;
 background:#28a745;
 color:white;
-padding:14px;
-border:none;
-border-radius:6px;
 font-size:16px;
-cursor:pointer;
 }
 
-.consent{
-display:flex;
-align-items:flex-start;
-gap:8px;
-font-size:12px;
-color:#555;
-margin-top:10px;
+.confirm-btn{
+background:#0d1b2a;
+color:white;
 }
 
-.footer{
-margin-top:15px;
-font-size:12px;
-color:#888;
-text-align:center;
+.submit-btn{
+background:#0d1b2a;
+color:white;
+}
+
+.hidden{
+display:none;
 }
 </style>
+
+<script>
+function showForm(){
+document.getElementById("payment-section").classList.add("hidden");
+document.getElementById("form-section").classList.remove("hidden");
+}
+</script>
+
 </head>
 
 <body>
 
-<div class="header">
-🐾 Pawfluence
-</div>
+<div class="header">🐾 Pawfluence</div>
 
 <div class="container">
 <div class="card">
 
-<h2>Creator Registration</h2>
-<p>Join our pet creator community & get featured!</p>
+<!-- PAYMENT FIRST -->
+<div id="payment-section">
+
+<h2>Complete Your Registration</h2>
+<p>Pay ₹149 to continue</p>
+
+<a href="upi://pay?pa=pawfluence01@okhdfcbank&pn=Pawfluence&am=149&cu=INR">
+<button class="pay-btn">Pay ₹149</button>
+</a>
+
+<button class="confirm-btn" onclick="showForm()">I have completed payment</button>
+
+</div>
+
+<!-- FORM AFTER PAYMENT -->
+<div id="form-section" class="hidden">
+
+<h2>Enter Your Details</h2>
 
 <form action="https://formspree.io/f/xkoqpgvy" method="POST">
 
-<div class="section-title">Owner Details</div>
 <input type="text" name="name" placeholder="Full Name" required>
-<input type="tel" name="phone" placeholder="Contact Number (WhatsApp preferred)" required>
-<input type="email" name="email" placeholder="Email ID" required>
-<input type="text" name="city" placeholder="City (Optional)">
+<input type="tel" name="phone" placeholder="Contact Number" required>
+<input type="email" name="email" placeholder="Email" required>
 
-<div class="section-title">Instagram</div>
 <input type="text" name="instagram" placeholder="Instagram Handle" required>
 <input type="text" name="posting" placeholder="Do you post pet content regularly?" required>
 
-<div class="section-title">Pet Details</div>
 <input type="text" name="pet_name" placeholder="Pet Name" required>
-<input type="text" name="breed" placeholder="Breed">
-<input type="text" name="age" placeholder="Age of Pet">
 
-<textarea name="intro" rows="3" placeholder="Tell us about your pet (1–2 lines)" required></textarea>
+<textarea name="intro" placeholder="Tell us about your pet" required></textarea>
 
-<div class="consent">
-<input type="checkbox" name="consent" required>
-<span>I allow Pawfluence to feature my pet on social media/magazine.</span>
-</div>
+<!-- NEW FIELD -->
+<input type="text" name="transaction_id" placeholder="UPI Transaction ID (after payment)" required>
 
-<button class="submit-btn" type="submit">Submit Details</button>
+<button class="submit-btn">Submit Details</button>
 
 </form>
 
-<a href="upi://pay?pa=pawfluence01@okhdfcbank&pn=Pawfluence&am=149&cu=INR">
-<button class="pay-btn">Pay ₹149 Registration Fee</button>
-</a>
-
-<div class="footer">
-Secure UPI Payment • Pawfluence
 </div>
 
 </div>
